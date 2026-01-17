@@ -1,41 +1,40 @@
 # Madrid-District-EDA
 Exploratory Data Analysis (EDA) of Madrid's urban zoning and demographics using Python (Pandas &amp; Matplotlib)
-# Madrid City Data Analysis: Urban & Demographic Insights
+# Madrid Airbnb Data Analysis 🏠
 
 ## Project Overview
-This project conducts an Exploratory Data Analysis (EDA) of the city of Madrid, focusing on [mention the main topic: e.g., real estate market trends, demographic distribution, or short-term rental density]. The goal was to understand the disparities between different districts and identify patterns that characterize the city's urban structure.
+This project performs a statistical analysis of the Airbnb market in Madrid. The goal is to understand the drivers behind listing prices, with a specific focus on location (distance to center/airport) and property amenities.
 
-This project was developed as part of the Data Analytics curriculum at **Nuclio Digital School**.
+By merging and processing multiple datasets (property details, location, host info, and reviews), this analysis provides actionable insights into the short-term rental market dynamics in the Spanish capital.
+
+*Developed as a Capstone Project for the Data Analytics program at **Nuclio Digital School**.*
 
 ## Business & Analytical Questions
-The analysis aims to answer the following questions:
-* **Zonal Segmentation:** How does [Main Metric, e.g., rental price] vary between the central "M30" almond and peripheral districts?
-* **Distribution Analysis:** Which districts show the highest concentration of [Variable A], and is there a correlation with [Variable B]?
-* **Outlier Detection:** Are there specific zones that behave significantly differently from the city average?
+* **Location Value:** How does the distance to *Puerta del Sol* (city center) impact the price per guest? Is there a specific radius where prices drop significantly?
+* **Amenity Impact:** Do essential amenities like Air Conditioning or WiFi correlate with higher listing prices?
+* **Host Status:** Does being a "Superhost" command a price premium, or is it purely a reputation metric?
+* **Airport Proximity:** How do prices fluctuate based on distance to Adolfo Suárez Madrid-Barajas Airport?
 
 ## Methodology
-The workflow followed a structured data analysis pipeline:
+The workflow follows a structured Data Analytics pipeline:
 
-1.  **Data Ingestion & Auditing:** Loaded raw data and performed an initial audit to check for duplicates, missing values, and inconsistent data types.
-2.  **Data Cleaning (Trust & Quality):**
-    * Handled missing values in [Column Name] by [Strategy: e.g., imputation with median / removal].
-    * Standardized district names to ensure consistent grouping.
-    * Removed illogical outliers (e.g., negative values or zero-price listings) to ensure analysis integrity.
-3.  **Exploratory Analysis (EDA):** Used Pandas for aggregation (groupby) and pivoting to extract summary statistics per district.
-4.  **Visualization:** Created static visualizations using Matplotlib to communicate trends effectively.
+1.  **Data Integration:** Merged 5 disjointed CSV datasets (`property`, `location`, `host`, `reviews`, `conditions`) into a single master dataframe.
+2.  **Data Cleaning:**
+    * Handled missing values and standardized column formats.
+    * Removed pricing outliers to ensure robust statistical averages.
+3.  **Feature Engineering:** Created categorical variables for distance ranges (e.g., "0-5km", "5-10km") to facilitate segmented analysis.
+4.  **Exploratory Data Analysis (EDA):** Used Matplotlib and Seaborn to visualize distributions and correlations.
 
 ## Key Insights
-* **The "Central Gap":** The data reveals a significant gap of [X]% in [Metric] between the Centro district and the southern districts, highlighting distinct socioeconomic zones.
-* **High Density Areas:** [District Name] accounts for [Y]% of the total records, suggesting it is a hotspot for [Activity/Housing].
-* **Correlation:** A [positive/negative] correlation was observed between [Variable A] and [Variable B], indicating that as [A] increases, [B] tends to [increase/decrease].
+* **The "Center Premium":** A strong negative correlation was observed between distance to the city center and price. The highest value listings are concentrated within a **2km radius** of Puerta del Sol.
+* **Connectivity Standard:** Listings with WiFi showed a distinct price distribution, suggesting connectivity is a baseline expectation for competitive pricing.
+* **Airport Influence:** Properties very close to the airport show specific pricing dynamics, likely catering to a different traveler segment (short layovers) compared to city tourists.
 
-*Note: These insights are based on a static dataset from [Year/Date] and represent a snapshot of the market conditions.*
-
-## Tools & Libraries
-* **Python 3.x**
-* **Pandas & NumPy:** For data manipulation and vectorization.
-* **Matplotlib:** For data visualization.
-
-## Project Structure
-* `notebooks/01_data_cleaning.ipynb`: Detailed steps on how raw data was processed.
-* `notebooks/02_exploratory_analysis.ipynb`: The main analytical breakdown and visualizations.
+## Repository Structure
+```text
+madrid-urban-analysis/
+│
+├── data/                  # Contains the 5 raw CSV datasets
+├── airbnb_analysis.ipynb  # Main Jupyter Notebook with code & visualizations
+├── README.md              # Project documentation
+└── requirements.txt       # Python dependencies
